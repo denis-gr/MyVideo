@@ -58,3 +58,10 @@ RUN python manage.py collectstatic --noinput --clear
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
 CMD set -xe; python manage.py migrate --noinput; gunicorn MyVideo.wsgi:application
+
+
+
+
+
+RUN apt-get install -y python3-opencv
+RUN python manage.py shell -c "import prepare"
