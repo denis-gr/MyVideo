@@ -33,7 +33,6 @@ class VideoPage(Page):
     ]
     content_panels = Page.content_panels + [
         FieldPanel("original_video"),
-        FieldPanel("image"),
         FieldPanel("description"),
     ]
     #promote_panels = Page.promote_panels + []

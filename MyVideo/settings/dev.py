@@ -12,6 +12,9 @@ CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io/"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+CORS_ALLOWED_ORIGINS = [
+    'https://5173-denisgr-myvideo-x5gkonzz9sw.ws-eu88.gitpod.io',
+]
 
 try:
     from .local import *

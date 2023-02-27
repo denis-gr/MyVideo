@@ -11,6 +11,7 @@ urlpatterns = [
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("search/", search_views.search, name="search"),
+    path('api/', include("videos.urls"))
 ]
 
 
