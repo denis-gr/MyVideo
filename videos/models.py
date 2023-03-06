@@ -3,7 +3,7 @@ import os
 import tempfile
 
 
-import cv2
+#import cv2
 from django.db import models
 from django.core.files import File
 

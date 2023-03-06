@@ -62,6 +62,5 @@ CMD set -xe; python manage.py migrate --noinput; gunicorn MyVideo.wsgi:applicati
 
 
 
-
 RUN apt-get install -y python3-opencv
 RUN python manage.py shell -c "import prepare"
