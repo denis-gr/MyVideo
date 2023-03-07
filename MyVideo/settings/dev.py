@@ -13,7 +13,7 @@ CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io/"]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 CORS_ALLOWED_ORIGINS = [
-    'https://5173-denisgr-myvideo-x5gkonzz9sw.ws-eu89.gitpod.io',
+    'https://5173-denisgr-myvideofront-cne3wanp45m.ws-eu89.gitpod.io',
 ]
 
 try:

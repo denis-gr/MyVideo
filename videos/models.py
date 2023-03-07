@@ -15,11 +15,12 @@ from wagtail.search import index
 class MainPage(Page):
     subpage_types = ["videos.VideoPage"]
     max_count = 1
+    template = "videos/index.html"
 
 class VideoPage(Page):
     description = models.TextField(verbose_name="Описание", blank=True, null=True)
     image = models.ImageField(verbose_name="Превью", blank=True, null=True)
-    original_video = models.FileField(verbose_name="Оригинал видео")
+    video_original = models.FileField(verbose_name="Оригинал видео")
     original_width = models.IntegerField(blank=True, null=True)
     original_height = models.IntegerField(blank=True, null=True)
     duration = models.IntegerField(blank=True, null=True)
@@ -32,7 +33,7 @@ class VideoPage(Page):
         index.SearchField("description"),
     ]
     content_panels = Page.content_panels + [
-        FieldPanel("original_video"),
+        FieldPanel("video_original"),
         FieldPanel("description"),
     ]
     #promote_panels = Page.promote_panels + []
@@ -40,10 +41,11 @@ class VideoPage(Page):
 
     parent_page_types = ["videos.MainPage"]
     subpage_types = []
+    template = "videos/index2.html"
 
     def save(self, **kwargs):
         result = super().save(**kwargs)
-        cap = cv2.VideoCapture(self.original_video.path)
+        cap = cv2.VideoCapture(self.video_original.path)
         self.original_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         self.original_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         fps = cap.get(cv2.CAP_PROP_FPS)
