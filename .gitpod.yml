@@ -6,4 +6,7 @@
 
 tasks:
   - init: pip install -r requirements.txt
+  - init: sudo apt-get update
   - init: sudo apt install python3-opencv
+  - init: python manage.py migrate
+  - init: python manage.py shell -c "import prepare"
