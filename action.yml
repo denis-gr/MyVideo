@@ -1,5 +1,0 @@
-name: 'Create Docker container'
-description: 'Create Docker container'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
