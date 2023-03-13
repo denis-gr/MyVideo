@@ -45,6 +45,9 @@ COPY --chown=wagtail:wagtail . .
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
 
+RUN apt-get install -y python3-opencv
+
+
 # Collect static files.
 RUN python manage.py collectstatic --noinput --clear
 
@@ -62,5 +65,5 @@ CMD set -xe; python manage.py migrate --noinput; gunicorn MyVideo.wsgi:applicati
 
 
 
-RUN apt-get install -y python3-opencv
+
 RUN python manage.py shell -c "import prepare"
